@@ -7,7 +7,7 @@ of energy needed to run that code
 Link to site:  https://green-code.herokuapp.com/
 
 # Developers
-Blessing Apkarian, 
+[Blessing Apkarian](https://github.com/BlessingApkarian), 
 Eddie Sanchez, 
 [Debbie Meda](https://github.com/bitmonst3r), and 
 Aldrin Dancel Carlos
