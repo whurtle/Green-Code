@@ -8,7 +8,7 @@ Link to site:  https://green-code.herokuapp.com/
 
 # Developers
 [Blessing Apkarian](https://github.com/BlessingApkarian), 
-Eddie Sanchez, 
+[Eddie Sanchez](https://github.com/adancelcarlos), 
 [Debbie Meda](https://github.com/bitmonst3r), and 
 Aldrin Dancel Carlos
 
