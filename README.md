@@ -12,7 +12,7 @@ Eddie Sanchez,
 [Debbie Meda](https://github.com/bitmonst3r), and 
 Aldrin Dancel Carlos
 
-## Libraries used
+# Libraries used
 
 - Express.js
 - Bootstrap Library
