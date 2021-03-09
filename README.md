@@ -14,7 +14,8 @@ Aldrin Dancel Carlos
 
 # Libraries used
 
-- Express.js
-- Bootstrap Library
+- Node.js
+- MariaDB
 - JQuery
-- npm mysql
+- Handlebars
+- Express.js
