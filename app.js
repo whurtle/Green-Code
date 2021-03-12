@@ -1,14 +1,30 @@
+const mysql = require('mysql');
 var createError = require('http-errors');
 var express = require('express');
 var handlebars = require('express-handlebars');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var hbs = require("hbs");
+
+hbs.registerPartials(path.join(__dirname, "views/partials"));
 
 var homeRouter = require('./routes/home');
 var loginRouter = require('./routes/login');
-
 var app = express();
+
+// creates connection to database
+// mysqlConnection takes in a config. object which contains host, user, password and the database name
+const sqlConfig = mysql.createConnection({
+  user: "wvdrotk2j9u8n4br",
+  password: "onwcrf4b5ve140ca",
+  host: "klbcedmmqp7w17ik.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+  port: "3306",
+  database: "aqz11ng3dobtihrg"
+});
+
+// creates a pool to handle query requests
+const pool = mysql.createPool(sqlConfig);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
