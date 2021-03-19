@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS Student;
+DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Code;
 
 CREATE TABLE User(
@@ -14,7 +14,7 @@ CREATE TABLE Code(
 	userId int,
 	submissionNumber int,
 	submissionTimestamp date,
-	code text,
+	codeString text,
 
 	PRIMARY KEY(submissionId),
 	FOREIGN KEY(userId) REFERENCES User(userId) ON DELETE CASCADE
