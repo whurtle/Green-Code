@@ -1,7 +1,6 @@
 const mysql = require('mysql');
 var createError = require('http-errors');
 var express = require('express');
-var handlebars = require('express-handlebars');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
