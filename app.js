@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require("hbs");
 
+require('dotenv').config();
+
 hbs.registerPartials(path.join(__dirname, "views/partials"));
 
 var homeRouter = require('./routes/home');
@@ -17,11 +19,11 @@ var app = express();
 // creates connection to database
 // mysqlConnection takes in a config. object which contains host, user, password and the database name
 const sqlConfig = mysql.createConnection({
-  user: "wvdrotk2j9u8n4br",
-  password: "onwcrf4b5ve140ca",
-  host: "klbcedmmqp7w17ik.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-  port: "3306",
-  database: "aqz11ng3dobtihrg"
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  database: process.env.DB_NAME
 });
 
 // creates a pool to handle query requests
