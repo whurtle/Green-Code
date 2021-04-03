@@ -10,7 +10,7 @@ hbs.registerPartials(path.join(__dirname, "views/partials"));
 
 var homeRouter = require('./routes/home');
 var loginRouter = require('./routes/login');
-var uploadRouter = require('./routes/upload'); 
+var uploadRouter = require('./routes/upload');
 var resultsRouter = require('./routes/results');
 var app = express();
 
@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', homeRouter);
 app.use('/login', loginRouter);
-app.use('/upload', uploadRouter); 
+app.use('/upload', uploadRouter);
 app.use('/results', resultsRouter);
 
 // catch 404 and forward to error handler
