@@ -37,8 +37,7 @@ router.get('/', async function(req, res, next) {
 });
 
 /**
- * Updates code data in database by submissionID
- * @returns 'fileUploaded' when files has been uplaoded into db
+ * Uploads code to database 
  */
 router.post('/upload', function (req, res) {
     let sampleFile;
@@ -50,7 +49,7 @@ router.post('/upload', function (req, res) {
     sampleFile = req.files.sampleFile;
     console.log(sampleFile);
 
-        pool.query('UPDATE Code SET codeString = ? WHERE submissionId = "1"', [sampleFile.data], (err, codes) => {
+        pool.query('INSERT INTO Code VALUES (NULL, NULL, NULL, CURDATE(), ?)', [sampleFile.data], (err, codes) => {
             if(!err) {
                 res.send("file Uploaded");
             } else {
@@ -58,6 +57,7 @@ router.post('/upload', function (req, res) {
             }
         });
 });
+
 
 module.exports = router;
 
