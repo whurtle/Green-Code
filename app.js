@@ -16,7 +16,6 @@ var homeRouter = require('./routes/home');
 var loginRouter = require('./routes/login');
 var uploadRouter = require('./routes/upload');
 var resultsRouter = require('./routes/results');
-var profileRouter = require('./routes/profile');
 var codeRouter = require('./routes/API/code');
 var app = express();
 
@@ -57,7 +56,6 @@ app.use('/login', loginRouter);
 app.use('/upload', uploadRouter);
 app.use('/results', resultsRouter);
 app.use('/code', codeRouter);
-app.use('/profile', profileRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

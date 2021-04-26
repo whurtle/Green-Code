@@ -37,29 +37,8 @@ router.get('/', async function(req, res, next) {
 });
 
 /**
- * Updates code data in database by submissionID
- * @returns 'fileUploaded' when files has been uplaoded into db
+ * Uploads code to database 
  */
-// router.post('/upload', function (req, res) {
-//     let sampleFile;
-
-//     if(!req.files || Object.keys(req.files).length === 0) {
-//         return res.status(400).send('No files were uploaded.');
-//     }
-
-//     sampleFile = req.files.sampleFile;
-//     console.log(sampleFile);
-
-//         pool.query('UPDATE Code SET codeString = ? WHERE submissionId = "1"', [sampleFile.data], (err, codes) => {
-//             if(!err) {
-//                 res.send("file Uploaded");
-//             } else {
-//                 console.log(err);
-//             }
-//         });
-// });
-
-
 router.post('/upload', function (req, res) {
     let sampleFile;
 
@@ -68,29 +47,15 @@ router.post('/upload', function (req, res) {
     }
 
     sampleFile = req.files.sampleFile;
-    console.log(sampleFile); 
+    console.log(sampleFile);
 
-    // onSignIn(googleUser);
-    // console.log();
-
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-
-    today = yyyy + '-' + mm + '-' + dd;
-    console.log(today);
-
-    // every time I used this to_date function, I got a really anoying error saying this function does not exist 
-    // SQL> INSERT INTO Code VALUES(TO_DATE('?', \'DD/MM/YYYY\'));
-
-    pool.query('INSERT INTO Code (userId, submissionNumber, codeString) VALUES (?, ?, ?)', [2, 2, sampleFile.data], (err, codes) => {
-        if(!err) {
-            res.send("file Uploaded");
-        } else {
-            console.log(err);
-        }
-    });
+        pool.query('INSERT INTO Code VALUES (NULL, NULL, NULL, CURDATE(), ?)', [sampleFile.data], (err, codes) => {
+            if(!err) {
+                res.send("file Uploaded");
+            } else {
+                console.log(err);
+            }
+        });
 });
 
 
