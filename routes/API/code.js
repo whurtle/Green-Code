@@ -39,10 +39,9 @@ router.get('/', async function(req, res, next) {
 /**
  * Gets code given submissionId
  */
-
 router.get('/searchById/:id', async function (req, res) {
     var code = await new Promise (function (resolve, reject) {
-        const query = 'SELECT codeString FROM Code WHERE submissionId = ?';
+        const query = 'SELECT * FROM Code WHERE submissionId = ?';
         const values = [req.params.id];
         console.log(values);
 
@@ -71,7 +70,7 @@ router.post('/upload', function (req, res) {
     sampleFile = req.files.sampleFile;
     console.log(sampleFile);
 
-        pool.query('INSERT INTO Code VALUES (NULL, NULL, NULL, CURDATE(), ?)', [sampleFile.data], (err, codes) => {
+        pool.query('INSERT INTO Code VALUES (NULL, NULL, ?, ?, ?)', [sampleFile.name, sampleFile.mimetype, sampleFile.data], (err, codes) => {
             if(!err) {
                 res.send("file Uploaded");
             } else {
