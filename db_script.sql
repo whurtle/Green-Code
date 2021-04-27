@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS Code;
 
 CREATE TABLE User(
 	userId int AUTO_INCREMENT,
-	email varchar(128),
+	email varchar(72),
 
 	PRIMARY KEY(userId)
 );
