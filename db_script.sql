@@ -3,10 +3,6 @@ DROP TABLE IF EXISTS Code;
 
 CREATE TABLE User(
 	userId int AUTO_INCREMENT,
-	firstName varchar(32),
-	lastName varchar(32),
-	username varchar(32),
-	password varchar(32),
 	email varchar(128),
 
 	PRIMARY KEY(userId)
@@ -15,8 +11,8 @@ CREATE TABLE User(
 CREATE TABLE Code(
 	submissionId int AUTO_INCREMENT,
 	userId int,
-	submissionNumber int,
-	submissionTimestamp date,
+	codeName varchar(32),
+	mimetype varchar(32),
 	codeString longblob,
 
 	PRIMARY KEY(submissionId),

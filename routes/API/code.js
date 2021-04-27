@@ -39,7 +39,6 @@ router.get('/', async function(req, res, next) {
 /**
  * Gets code given submissionId
  */
-
 router.get('/searchById/:id', async function (req, res) {
     var code = await new Promise (function (resolve, reject) {
         const query = 'SELECT codeString FROM Code WHERE submissionId = ?';
