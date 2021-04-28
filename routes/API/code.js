@@ -33,7 +33,28 @@ router.get('/', async function(req, res, next) {
         });
     });
 
-    res.json({ success: (Array.isArray(codes) && codes.length > 0), codes: codes});
+    res.send(codes);
+});
+
+/**
+ * Gets code given submissionId
+ */
+router.get('/searchById/:id', async function (req, res) {
+    var code = await new Promise (function (resolve, reject) {
+        const query = 'SELECT * FROM Code WHERE submissionId = ?';
+        const values = [req.params.id];
+        console.log(values);
+
+        pool.query(query, values, function (error, results) {
+            if(error) {
+                req.err = error;
+                reject(error);
+            } else {
+                resolve(results);
+            }
+        });
+    }); 
+    res.send(code);
 });
 
 /**
@@ -49,7 +70,7 @@ router.post('/upload', function (req, res) {
     sampleFile = req.files.sampleFile;
     console.log(sampleFile);
 
-        pool.query('INSERT INTO Code VALUES (NULL, NULL, NULL, CURDATE(), ?)', [sampleFile.data], (err, codes) => {
+        pool.query('INSERT INTO Code VALUES (NULL, NULL, ?, ?, ?)', [sampleFile.name, sampleFile.mimetype, sampleFile.data], (err, codes) => {
             if(!err) {
                 res.send("file Uploaded");
             } else {
@@ -57,7 +78,6 @@ router.post('/upload', function (req, res) {
             }
         });
 });
-
 
 module.exports = router;
 
