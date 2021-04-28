@@ -1,30 +1,20 @@
-DROP TABLE IF EXISTS Student;
+DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Code;
-DROP TABLE IF EXISTS Assignment;
 
-CREATE TABLE Student(
-	studentId int AUTO_INCREMENT,
-	firstName varchar(32),
-	lastName varchar(32),
+CREATE TABLE User(
+	userId int AUTO_INCREMENT,
+	email varchar(72),
 
-	PRIMARY KEY(studentId)
-);
-
-CREATE TABLE Assignment(
-	assignmentId int AUTO_INCREMENT,
-	assignmentName varchar(64),
-
-	PRIMARY KEY(assignmentId)
+	PRIMARY KEY(userId)
 );
 
 CREATE TABLE Code(
 	submissionId int AUTO_INCREMENT,
-	studentId int,
-	assignmentId int,
-	submissionNumber int,
-	submissionTimestamp date,
+	userId int,
+	codeName varchar(32),
+	mimetype varchar(32),
+	codeString longblob,
 
 	PRIMARY KEY(submissionId),
-	FOREIGN KEY(studentId) REFERENCES Student(studentId) ON DELETE CASCADE,
-	FOREIGN KEY(assignmentId) REFERENCES Assignment(assignmentId) ON DELETE CASCADE
+	FOREIGN KEY(userId) REFERENCES User(userId) ON DELETE CASCADE
 );

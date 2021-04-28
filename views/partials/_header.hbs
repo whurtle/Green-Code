@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <include src="./_bulma.html"></include>
+        {{> _bulma}}
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        {{!-- <link rel="stylesheet" href="/stylesheets/{{style}}"> --}}
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="299497171148-rq9u75899t9ma315tsuur6aiced7romu.apps.googleusercontent.com">
+        {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> --}}
+        {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"> --}}
     </head>
     <body>
+        <img id="img_head" src="\images\logo.png" width="150" height="150">
+        <br>
+        {{> _nav}}
+        {{!-- <hr style="background:#19ff04"> --}}
