@@ -13,8 +13,10 @@ hbs.registerPartials(path.join(__dirname, "views/partials"));
 
 var indexRouter = require('./routes/index');
 var homeRouter = require('./routes/home');
+var codeListingRouter = require('./routes/codeListing');
 var loginRouter = require('./routes/login');
 var uploadRouter = require('./routes/upload');
+var profileRouter = require('./routes/profile');
 var resultsRouter = require('./routes/results');
 var codeRouter = require('./routes/API/code');
 var app = express();
@@ -45,15 +47,17 @@ app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'upload')));
 
 app.use('/', homeRouter);
 app.use('/index', indexRouter);
+app.use('/codeListing', codeListingRouter);
 app.use('/login', loginRouter);
 app.use('/upload', uploadRouter);
+app.use('/profile', profileRouter);
 app.use('/results', resultsRouter);
 app.use('/code', codeRouter);
 

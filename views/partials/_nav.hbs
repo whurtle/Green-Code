@@ -1,10 +1,7 @@
 <nav class="navbar is-black" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
+    <a class="navbar-item" href="/">
+      <img src="\images\logo.png" width="50" height="50">
     </a>
   </div>
 
@@ -55,6 +52,7 @@
 <script>
   $("#profileB").hide();
   $("#signOutB").hide();
+
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
@@ -63,15 +61,19 @@
       $("#signOutB").hide();
     });
   }
+
   function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();
       //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
       //console.log('Name: ' + profile.getName());
       //console.log('Image URL: ' + profile.getImageUrl());
       //console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
       $('#UserName').html(profile.getName())
       $('#UserEmail').html(profile.getEmail())
+
       $('#UserImage').attr('src', profile.getImageUrl())
+
       $('#profileB').show()
       $("#signOutB").show();
   }
