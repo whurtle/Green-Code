@@ -6,12 +6,17 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <meta name="google-signin-client_id" content="299497171148-rq9u75899t9ma315tsuur6aiced7romu.apps.googleusercontent.com">
         <link rel='stylesheet' href='/stylesheets/style.css' />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body> 
-        <div  style="text-align:center;"href="/">
-            <img id="img_head" src="\images\logo.png" width="150" height="150">
+        <div class="home_background" style="text-align:center;">
+                <a href="/">
+                    <img id="img_head" src="\images\logo.png" width="150" height="150">
+                </a>
+                {{!-- <div class="home_background" style="text-align:center;padding:100px;color:white;background-repeat:no-repeat" >
+        </div> --}}
+
         </div>
-        <div class="home_background" style="text-align:center;"></div>
-        <br>
         {{> _nav}}
 
+        
