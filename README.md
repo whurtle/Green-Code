@@ -2,7 +2,7 @@
 
 **Green Code** is a web application and REST API that takes code, 
 runs it and is given an energy signature representing the amount
-of energy needed to run that code
+of energy needed to run that code.
 
 Link to site:  https://green-code.herokuapp.com/
 

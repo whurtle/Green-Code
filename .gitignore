@@ -3,6 +3,7 @@ node_modules
 *.bat
 *.ps1
 *.idea
+*.env
 
 ## Excluding visual studio related files/folders
 obj
