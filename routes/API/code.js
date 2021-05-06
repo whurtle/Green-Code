@@ -72,7 +72,8 @@ router.post('/upload', function (req, res) {
 
         pool.query('INSERT INTO Code VALUES (NULL, NULL, ?, ?, ?)', [sampleFile.name, sampleFile.mimetype, sampleFile.data], (err, codes) => {
             if(!err) {
-                res.send("file Uploaded");
+                // res.send("file Uploaded");
+                res.render('codeListing')
             } else {
                 console.log(err);
             }

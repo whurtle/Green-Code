@@ -16,8 +16,8 @@ body {
 }
  
 .footer{
-  position:absolute;
-  margin-top: 180px;
+  position: static;
+  /* margin-top: 280px; */
   bottom: 0;
   width: 100%;
   height: 2.5rem;
@@ -31,18 +31,15 @@ a {
 } 
 
 .container{
+  /* position: relative; */
   margin: auto;
   background-color: rgb(0, 0, 0, 0.7);
-  width: 500px;
-  height: 333px;
+  width: 750px;
+  height: 500px;
   top: 100px;
-  /* margin: 7em auto; */
   border-radius: 1.5em;
   border-color: rgb(119, 119, 119);
   border-style: ridge;
-  /* border-radius: 50%;
-  width: 500px;
-  height: 500px; */
 }
 
 #h1-upload{
@@ -50,14 +47,16 @@ a {
   text-align: center;
   position: absolute;
   top: 10%;
-  left: 31%;
+  left: 38%;
   font-size: 33px;
 }
 
 #file-js-example{
   position: absolute;
   top: 33%;
-  left: 21%;
+  left: 22%;
+  color: white;
+  font-size: 21px;
 }
 
 .pulse{
@@ -136,3 +135,35 @@ input.divLink {
   width: 50%;
 }
 
+.code-container{
+  margin: auto;
+  width: fit-content;
+  padding: 50px;
+}
+
+.code-box {
+  /* position: relative; */
+  margin: auto;
+  height: fit-content;
+  width: fit-content;
+  /* padding: 100px; */
+  color: blue;
+}
+
+.title-code-box {
+  background-color: rgb(0, 0, 0, 0.3);
+  color: white;
+  font-size: 18px;
+  font-family: 'Courier New', Courier, monospace;
+  display: block;
+  vertical-align: bottom;
+  bottom: 0;
+}
+
+.download-link{
+  padding-top: 5px;
+  text-align: center; 
+  width: 50px; 
+  margin: 0 auto; 
+  font-size: 18px;
+}
