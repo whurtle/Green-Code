@@ -22,8 +22,7 @@ var codeRouter = require('./routes/API/code');
 var app = express();
 
 // creates connection to database
-// mysqlConnection takes in a config. object which contains host, user, 
-// password and the database name
+// mysqlConnection takes in a config. object which contains host, user, password and the database name
 const pool = mysql.createConnection({
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
