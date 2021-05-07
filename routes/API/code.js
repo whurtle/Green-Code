@@ -70,14 +70,23 @@ router.post('/upload', function (req, res) {
     sampleFile = req.files.sampleFile;
     console.log(sampleFile);
 
-        pool.query('INSERT INTO Code VALUES (NULL, NULL, ?, ?, ?)', [sampleFile.name, sampleFile.mimetype, sampleFile.data], (err, codes) => {
-            if(!err) {
-                // res.send("file Uploaded");
-                res.render('codeListing')
-            } else {
-                console.log(err);
-            }
-        });
+    pool.query('INSERT INTO Code VALUES (NULL, NULL, ?, ?, ?)', [sampleFile.name, sampleFile.mimetype, sampleFile.data], (err, codes) => {
+        if(!err) {
+            // res.send("file Uploaded");
+            const query = 'SELECT * FROM Code';
+            pool.query(query, [sampleFile.name, sampleFile.mimetype, sampleFile.data], (err, codes) => {
+                if(!err) {
+                    // res.send("file Uploaded");
+                    res.render('codeListing', { data: codes });
+                } else {
+                    console.log(err);
+                }
+            });
+        } else {
+            console.log(err);
+        }
+    });
+
 });
 
 module.exports = router;
