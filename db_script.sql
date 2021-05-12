@@ -13,7 +13,7 @@ CREATE TABLE Code(
 	userId int,
 	codeName varchar(32),
 	mimetype varchar(32),
-	codeString longblob,
+	codeString longtext,
 
 	PRIMARY KEY(submissionId),
 	FOREIGN KEY(userId) REFERENCES User(userId) ON DELETE CASCADE
