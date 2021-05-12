@@ -95,11 +95,11 @@ router.post('/upload', function (req, res) {
     console.log(sampleFile);
     console.log(ext[1]);
 
-    pool.query('INSERT INTO Code VALUES (NULL, NULL, ?, ?, ?)', [sampleFile.name, ext.mimetype, sampleFile.data], (err, codes) => {
+    pool.query('INSERT INTO Code VALUES (NULL, NULL, ?, ?, ?)', [sampleFile.name, ext[1], sampleFile.data], (err, codes) => {
         if(!err) {
             // res.send("file Uploaded");
             const query = 'SELECT * FROM Code';
-            pool.query(query, [sampleFile.name, ext.mimetype, sampleFile.data], (err, codes) => {
+            pool.query(query, [sampleFile.name, ext[1], sampleFile.data], (err, codes) => {
                 if(!err) {
                     // res.send("file Uploaded");
                     res.render('codeListing', { data: codes });
