@@ -1,0 +1,32 @@
+.code-container{
+    margin: auto;
+    width: fit-content;
+    padding: 50px;
+  }
+  
+  .code-box {
+    /* position: relative; */
+    margin: auto;
+    height: fit-content;
+    width: fit-content;
+    /* padding: 100px; */
+    color: blue;
+  }
+  
+  .title-code-box {
+    background-color: rgb(0, 0, 0, 0.3);
+    color: white;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    display: block;
+    vertical-align: bottom;
+    bottom: 0;
+  }
+  
+  .download-link{
+    padding-top: 5px;
+    text-align: center; 
+    width: 50px; 
+    margin: 0 auto; 
+    font-size: 18px;
+  }

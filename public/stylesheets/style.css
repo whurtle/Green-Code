@@ -1,15 +1,20 @@
+#img_head{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* -webkit-filter: drop-shadow(15px 15px 15px rgb(255, 255, 255)); */
+  filter: drop-shadow(5px 15px 25px rgb(255, 255, 255));
+}
+
 body {
+  /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url(/images/forrest2.jpg);
+  background-image: url("/images/forrest.jpg");
   background-size: cover;
   min-height: 1000px;
   background-repeat: no-repeat;
 }
-
-a {
-  color: skyblue;
-}
-
+ 
 .footer{
   position: static;
   /* margin-top: 280px; */
@@ -21,15 +26,30 @@ a {
   text-align: center;
 }
 
+a {
+  color: #00B7FF;
+} 
+
+
+.container2{
+
+}
+
+
+a {
+  color: skyblue;
+}
+
 .home_background {
-   background-image: url(/images/forrest2.jpg);
+   /* background-image: url(/images/forrest2.jpg); */
   /* background-size: cover;
   min-height: 1000px;
   background-repeat: no-repeat; */
 }
 
-.pulse{
-  position: absolute;
+.pulse-home{
+  position: relative;
+  top: 62%;
   top: 78%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -40,11 +60,12 @@ a {
   border-radius: 50%;
   text-align: center;
   line-height: 84px;
+  cursor: pointer;
   z-index: 10;
 }
 
-.pulse:before,
-.pulse:after{
+.pulse-home:before,
+.pulse-home:after{
   content: '';
   display: block;
   position: absolute;
@@ -57,7 +78,7 @@ a {
   border-radius: 50%;
   animation: animate 1.5s linear infinite;
 }
-.pulse:after{
+.pulse-home:after{
   animation-delay: .5s;
 }
 @keyframes animate{
@@ -74,17 +95,21 @@ a {
   } 
 }
 
+
+
 a.divLink {
-   font-family:Helvetica;
-   font-weight: bold;
-   font-size: 18px;
-   color: white;
-   position: absolute;
-   width: 100%;
-   height: 100%;
-   top: 10%;
-   left: 0;
-   text-decoration: none;
-   z-index: 10;
-   /* raises anchor tag above everything else in div */
+  font-family:Helvetica;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 10%;
+  left: 0;
+  text-decoration: none;
+  z-index: 10;
+  /* raises anchor tag above everything else in div */
 }
+
+
