@@ -1,0 +1,16 @@
+{{> _header}}
+{{#each view}}
+<div class="code-container">
+    <a href="javascript:history.back()">Go Back</a> 
+    <div class="title-code-box">
+        <span> ID:{{this.submissionId}} &emsp; File Name:{{this.codeName}}</span>
+    </div>
+    <div class="code-box"> 
+                <pre>{{this.codeString}}</pre>  
+    </div>
+    <div class="download-link">
+        <a href="wget https://green-code.herokuapp.com/code/searchByIdAndExt/{{this.submissionId}}.sql" download>Download</a>
+     </div>
+</div>
+{{/each}}
+{{> _footer}}

@@ -37,7 +37,7 @@ router.get('/', async function(req, res, next) {
 });
 
 /**
- * Gets code given submissionId
+ * Gets all columns info for given submissionId
  */
 router.get('/searchById/:id', async function (req, res) {
     var code = await new Promise (function (resolve, reject) {
@@ -57,29 +57,62 @@ router.get('/searchById/:id', async function (req, res) {
     res.send(code);
 });
 
+// Gets file by given id and file extension 
+router.get('/searchByIdAndExt/:id.:ext', async function (req, res) {
+    var x;
+    var code = await new Promise (function (resolve, reject) {
+        const query = 'SELECT codeString FROM Code WHERE submissionId = ? AND mimeType = ?' ;
+        const values = [req.params.id, req.params.ext];
+        console.log(values);
+
+        pool.query(query, values, function (error, results) {
+            if(error) {
+                req.err = error;
+                reject(error);
+            } else {
+                resolve(results);
+            }
+        });
+    }); 
+    x = code[0]["codeString"];
+    res.send(x);
+});
+
 /**
- * Uploads code to database 
+ * Uploads code file into database 
  */
 router.post('/upload', function (req, res) {
     let sampleFile;
+    let ext;
 
     if(!req.files || Object.keys(req.files).length === 0) {
         return res.status(400).send('No files were uploaded.');
     }
 
     sampleFile = req.files.sampleFile;
+    ext = sampleFile.name.split('.');
+    
     console.log(sampleFile);
+    console.log(ext[1]);
 
-        pool.query('INSERT INTO Code VALUES (NULL, NULL, ?, ?, ?)', [sampleFile.name, sampleFile.mimetype, sampleFile.data], (err, codes) => {
-            if(!err) {
-                // res.send("file Uploaded");
-                res.render('codeListing')
-            } else {
-                console.log(err);
-            }
-        });
+    pool.query('INSERT INTO Code VALUES (NULL, NULL, ?, ?, ?)', [sampleFile.name, ext[1], sampleFile.data], (err, codes) => {
+        if(!err) {
+            // res.send("file Uploaded");
+            const query = 'SELECT * FROM Code';
+            pool.query(query, [sampleFile.name, ext[1], sampleFile.data], (err, codes) => {
+                if(!err) {
+                    // res.send("file Uploaded");
+                    res.render('codeListing', { data: codes });
+                } else {
+                    console.log(err);
+                }
+            });
+        } else {
+            console.log(err);
+        }
+    });
+
 });
 
 module.exports = router;
-
 

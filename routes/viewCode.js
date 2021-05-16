@@ -15,20 +15,23 @@ const sqlConfig = {
 const pool = mysql.createPool(sqlConfig);
 
 /* GET results listing. */
-router.get('/', async function(req, res, next) {
-    var codes = await new Promise(function (resolve, reject) {
-        const query = 'SELECT * FROM Code';
-        pool.query(query, function (error, results) {
-            if (error) {
+router.get('/:submissionId', async function (req, res) {
+    var codes = await new Promise (function (resolve, reject) {
+        const query = 'SELECT * FROM Code WHERE submissionId = ?';
+        const values = [req.params.submissionId];
+        console.log(values);
+
+        pool.query(query, values, function (error, results) {
+            if(error) {
                 req.err = error;
                 reject(error);
             } else {
                 resolve(results);
             }
         });
-    });
-    res.render('Results', { data: codes });
- });
+    }); 
+    res.render('viewCode', { view: codes });
+});
 
 module.exports = router;
 

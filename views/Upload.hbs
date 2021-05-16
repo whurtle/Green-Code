@@ -1,12 +1,43 @@
 {{> _header}}
 
-<h2> UPLOAD SECTION </h2>
-<br>
+<div class="container">
+<form id="file-upload" action="/code/upload" method="POST" enctype="multipart/form-data">
+    
+        <h1 id="h1-upload">Upload a file</h1>
+            <div id="file-js-example" class="file has-name">
+            <label class="file-label">
+                <input class="file-input" type="file" name="sampleFile">
+                <span class="file-cta">
+                <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                    Choose a file…
+                </span>
+                </span>
+                <span class="file-name">
+                No file uploaded
+                </span>
+            </label>
+            </div>
 
-<form id="fileupload" action="/code/upload" method="POST" enctype="multipart/form-data">
-    <!-- Redirect browsers with JavaScript disabled to the origin page -->
-   <input type="file" name="sampleFile" />
-   <input type="submit" value="Add code"> 
-</form>  
-{{> _footer}}
+            <div class="pulse">
+                <input class="divLink" type="submit" value="Submit"> 
+            </div>
+</form>
+            <script>
+                const fileInput = document.querySelector('#file-js-example input[type=file]');
+                fileInput.onchange = () => {
+                    if (fileInput.files.length > 0) {
+                    const fileName = document.querySelector('#file-js-example .file-name');
+                    fileName.textContent = fileInput.files[0].name;
+                    }
+                }
+            </script>
 
+</div>
+  <div style="position:relative; padding-top:200px;" >
+    <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+      <p style="text-align: center; font-size: 25px;">Let's Build A Better Future.</p>
+    </div>
+  </div>

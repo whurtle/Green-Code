@@ -19,6 +19,7 @@ var uploadRouter = require('./routes/upload');
 var profileRouter = require('./routes/profile');
 var resultsRouter = require('./routes/results');
 var codeRouter = require('./routes/API/code');
+var viewRouter = require('./routes/viewCode');
 var app = express();
 
 // creates connection to database
@@ -60,6 +61,7 @@ app.use('/upload', uploadRouter);
 app.use('/profile', profileRouter);
 app.use('/results', resultsRouter);
 app.use('/code', codeRouter);
+app.use('/viewCode', viewRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
