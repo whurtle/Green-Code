@@ -1,6 +1,6 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url(/images/forrest2.jpg);
+  background-image: url(/images/forrest.jpg);
   background-size: cover;
   min-height: 1000px;
   background-repeat: no-repeat;
@@ -9,6 +9,7 @@ body {
 a {
   color: skyblue;
 }
+
 
 .footer{
   position: static;
@@ -29,10 +30,11 @@ a {
 }
 
 .pulse{
-  position: absolute;
-  top: 78%;
+  position: relative;
+  top: 50%;
+  /* right:50%; */
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 1%);
   width: 100px;
   height: 100px;
   background: #58ea00;
