@@ -1,17 +1,25 @@
 {{> _header}}
 
-<div class='container'>
+<div class="box">
+  <h2 class='title'> Profile </h2>
 
-    <h2 class='title'> Profile </h2>
-    <div class='container'>
-        <img src="" alt="Image" id='UserImage' class="pl-6">
-
-        <div id='UserName' class="pl-6">   </div>
-
-        <div id='UserEmail' name='email' class="pl-6">   </div>
+  <article class="media">
+    <div class="media-left">
+      <figure class="image is-64x64">
+        <img src="" alt="Image" id='UserImage'>
+      </figure>
     </div>
-    <br><br>
 
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><div id='UserName' class="pl-6">   </div></strong> <small><div id='UserEmail' name='email' class="pl-6">   </div></small>
+          <br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+        </p>
+      </div>
+    </div>
+  </article>
 </div>
 
 {{> _footer}}
