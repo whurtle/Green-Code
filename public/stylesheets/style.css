@@ -52,7 +52,7 @@ a {
   top: 62%;
   top: 78%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 1%);
   width: 100px;
   height: 100px;
   background: #58ea00;
