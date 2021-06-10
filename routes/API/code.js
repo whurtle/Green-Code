@@ -11,8 +11,7 @@ const sqlConfig = {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     database: process.env.DB_NAME
-};
-
+}
 // creates a pool to handle query requests.
 const pool = mysql.createPool(sqlConfig);
 
@@ -40,10 +39,9 @@ router.get('/', async function(req, res, next) {
  * Gets all columns info for given submissionId
  */
 router.get('/searchById/:id', async function (req, res) {
-    var code = await new Promise (function (resolve, reject) {
+    const rows = await new Promise (function (resolve, reject) {
         const query = 'SELECT * FROM Code WHERE submissionId = ?';
         const values = [req.params.id];
-        console.log(values);
 
         pool.query(query, values, function (error, results) {
             if(error) {
@@ -54,16 +52,16 @@ router.get('/searchById/:id', async function (req, res) {
             }
         });
     }); 
-    res.send(code);
+
+    const code = rows[0];
+
+    return code;
 });
 
-// Gets file by given id and file extension 
-router.get('/searchByIdAndExt/:id.:ext', async function (req, res) {
-    var x;
-    var code = await new Promise (function (resolve, reject) {
-        const query = 'SELECT codeString FROM Code WHERE submissionId = ? AND mimeType = ?' ;
-        const values = [req.params.id, req.params.ext];
-        console.log(values);
+router.get('/downloadById/:id', async function (req, res) {
+    const rows = await new Promise (function (resolve, reject) {
+        const query = 'SELECT * FROM Code WHERE submissionId = ?';
+        const values = [req.params.id];
 
         pool.query(query, values, function (error, results) {
             if(error) {
@@ -74,9 +72,34 @@ router.get('/searchByIdAndExt/:id.:ext', async function (req, res) {
             }
         });
     }); 
-    x = code[0]["codeString"];
-    res.send(x);
+
+    const code = rows[0];
+
+    res.attachment(code.codeName);
+    res.type(code.mimetype);
+    res.send(code.codeString);
 });
+
+// // Gets file by given id and file extension 
+// router.get('/searchByIdAndExt/:id.:ext', async function (req, res) {
+//     var x;
+//     var code = await new Promise (function (resolve, reject) {
+//         const query = 'SELECT codeString FROM Code WHERE submissionId = ? AND mimeType = ?' ;
+//         const values = [req.params.id, req.params.ext];
+//         console.log(values);
+
+//         pool.query(query, values, function (error, results) {
+//             if(error) {
+//                 req.err = error;
+//                 reject(error);
+//             } else {
+//                 resolve(results);
+//             }
+//         });
+//     }); 
+//     x = code[0]["codeString"];
+//     res.send(x);
+// });
 
 /**
  * Uploads code file into database 
