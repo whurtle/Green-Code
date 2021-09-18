@@ -30,5 +30,19 @@ router.get('/', async function(req, res, next) {
     res.render('Results', { data: codes });
  });
 
+ router.get('/json/:submissionId', async function(req, res, next) {
+    var results = await new Promise((resolve, reject) => {
+        pool.query('SELECT jsonString FROM Code where submissionId = ?', [req.params.submissionId], (error, results) => {
+            if (error) {
+                req.err = error;
+                reject(error);
+            } else {
+                resolve(results);
+            }
+        });
+    });
+    res.render('graphsJson', { data: results });
+ });
+
 module.exports = router;
 

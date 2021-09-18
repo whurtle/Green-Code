@@ -11,8 +11,7 @@ const sqlConfig = {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     database: process.env.DB_NAME
-};
-
+}
 // creates a pool to handle query requests.
 const pool = mysql.createPool(sqlConfig);
 
@@ -40,10 +39,9 @@ router.get('/', async function(req, res, next) {
  * Gets all columns info for given submissionId
  */
 router.get('/searchById/:id', async function (req, res) {
-    var code = await new Promise (function (resolve, reject) {
+    const rows = await new Promise (function (resolve, reject) {
         const query = 'SELECT * FROM Code WHERE submissionId = ?';
         const values = [req.params.id];
-        console.log(values);
 
         pool.query(query, values, function (error, results) {
             if(error) {
@@ -54,16 +52,16 @@ router.get('/searchById/:id', async function (req, res) {
             }
         });
     }); 
-    res.send(code);
+
+    const code = rows[0];
+
+    return code;
 });
 
-// Gets file by given id and file extension 
-router.get('/searchByIdAndExt/:id.:ext', async function (req, res) {
-    var x;
-    var code = await new Promise (function (resolve, reject) {
-        const query = 'SELECT codeString FROM Code WHERE submissionId = ? AND mimeType = ?' ;
-        const values = [req.params.id, req.params.ext];
-        console.log(values);
+router.get('/downloadById/:id', async function (req, res) {
+    const rows = await new Promise (function (resolve, reject) {
+        const query = 'SELECT * FROM Code WHERE submissionId = ?';
+        const values = [req.params.id];
 
         pool.query(query, values, function (error, results) {
             if(error) {
@@ -74,9 +72,34 @@ router.get('/searchByIdAndExt/:id.:ext', async function (req, res) {
             }
         });
     }); 
-    x = code[0]["codeString"];
-    res.send(x);
+
+    const code = rows[0];
+
+    res.attachment(code.codeName);
+    res.type(code.mimetype);
+    res.send(code.codeString);
 });
+
+// // Gets file by given id and file extension 
+// router.get('/searchByIdAndExt/:id.:ext', async function (req, res) {
+//     var x;
+//     var code = await new Promise (function (resolve, reject) {
+//         const query = 'SELECT codeString FROM Code WHERE submissionId = ? AND mimeType = ?' ;
+//         const values = [req.params.id, req.params.ext];
+//         console.log(values);
+
+//         pool.query(query, values, function (error, results) {
+//             if(error) {
+//                 req.err = error;
+//                 reject(error);
+//             } else {
+//                 resolve(results);
+//             }
+//         });
+//     }); 
+//     x = code[0]["codeString"];
+//     res.send(x);
+// });
 
 /**
  * Uploads code file into database 
@@ -94,8 +117,9 @@ router.post('/upload', function (req, res) {
     
     console.log(sampleFile);
     console.log(ext[1]);
+    pool.query('INSERT INTO User VALUES (NULL, ?)', ['ahelman@csumb.edu']);
 
-    pool.query('INSERT INTO Code VALUES (NULL, NULL, ?, ?, ?)', [sampleFile.name, ext[1], sampleFile.data], (err, codes) => {
+    pool.query('INSERT INTO Code VALUES (NULL, ?, ?, ?, ?, NULL, NULL)', [1, sampleFile.name, ext[1], sampleFile.data], (err, codes) => {
         if(!err) {
             // res.send("file Uploaded");
             const query = 'SELECT * FROM Code';
@@ -107,6 +131,18 @@ router.post('/upload', function (req, res) {
                     console.log(err);
                 }
             });
+        } else {
+            console.log(err);
+        }
+    });
+
+});
+
+router.put('/uploadJson/:id', function (req, res) {
+    pool.query('UPDATE Code SET jsonString = ? WHERE submissionId = ? ', [JSON.stringify(req.body), req.params.id], (err, codes) => {
+        if(!err) {
+            console.log(codes);
+            res.status(204).send('Json uploaded successfully');
         } else {
             console.log(err);
         }
