@@ -117,8 +117,9 @@ router.post('/upload', function (req, res) {
     
     console.log(sampleFile);
     console.log(ext[1]);
+    pool.query('INSERT INTO User VALUES (NULL, ?)', ['ahelman@csumb.edu']);
 
-    pool.query('INSERT INTO Code VALUES (NULL, NULL, ?, ?, ?)', [sampleFile.name, ext[1], sampleFile.data], (err, codes) => {
+    pool.query('INSERT INTO Code VALUES (NULL, ?, ?, ?, ?, NULL, NULL)', [1, sampleFile.name, ext[1], sampleFile.data], (err, codes) => {
         if(!err) {
             // res.send("file Uploaded");
             const query = 'SELECT * FROM Code';
@@ -130,6 +131,18 @@ router.post('/upload', function (req, res) {
                     console.log(err);
                 }
             });
+        } else {
+            console.log(err);
+        }
+    });
+
+});
+
+router.put('/uploadJson/:id', function (req, res) {
+    pool.query('UPDATE Code SET jsonString = ? WHERE submissionId = ? ', [JSON.stringify(req.body), req.params.id], (err, codes) => {
+        if(!err) {
+            console.log(codes);
+            res.status(204).send('Json uploaded successfully');
         } else {
             console.log(err);
         }
