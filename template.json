@@ -1,0 +1,52 @@
+{
+    "datetime" : 1628472149,
+    "id" : "gros5085",
+    "sort" : "selection", 
+    "runs": 
+    [
+    {
+        "size" : 5000,
+        "total_time": 12345,
+        "measurements": 
+        [
+        {
+            "label": "CPU Temp",
+            "unit": "Degrees C",
+            "mean": 62.1
+        }, 
+        {
+            "label": "CPU Energy",
+            "unit": "mWh",
+            "total": 1234.23
+        },
+        {
+            "label": "Total Energy",
+            "unit": "mWh", 
+            "total": 4321.23
+        } 
+        ]
+    },
+    {
+        "size" : 10000,
+        "total_time": 54321,
+        "measurements": 
+        [
+        {
+            "label": "CPU Temp",
+            "unit": "Degrees C",
+            "mean": 62.1
+        }, 
+        {
+            "label": "CPU Energy",
+            "unit": "mWh",
+            "total": 1234.23
+        },
+        {
+            "label": "Total Energy",
+            "unit": "mWh", 
+            "total": 4321.23
+        } 
+        ]
+    }
+    ]
+}
