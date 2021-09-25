@@ -4,49 +4,137 @@
     "sort" : "selection", 
     "runs": 
     [
-    {
-        "size" : 5000,
-        "total_time": 12345,
-        "measurements": 
-        [
         {
-            "label": "CPU Temp",
-            "unit": "Degrees C",
-            "mean": 62.1
-        }, 
-        {
-            "label": "CPU Energy",
-            "unit": "mWh",
-            "total": 1234.23
+            "size" : 50000000,
+            "total_time": 12345,
+            "measurements": 
+            [
+            {
+                "label": "CPU Temp",
+                "unit": "Degrees C",
+                "mean": 62.1
+            }, 
+            {
+                "label": "CPU Energy",
+                "unit": "mWh",
+                "total": 20.27375758
+            },
+            {
+                "label": "Total Energy",
+                "unit": "mWh", 
+                "total": 4321.23
+            } 
+            ]
         },
         {
-            "label": "Total Energy",
-            "unit": "mWh", 
-            "total": 4321.23
-        } 
-        ]
-    },
-    {
-        "size" : 10000,
-        "total_time": 54321,
-        "measurements": 
-        [
-        {
-            "label": "CPU Temp",
-            "unit": "Degrees C",
-            "mean": 62.1
-        }, 
-        {
-            "label": "CPU Energy",
-            "unit": "mWh",
-            "total": 1234.23
+            "size" : 60000000,
+            "total_time": 12345,
+            "measurements": 
+            [
+            {
+                "label": "CPU Temp",
+                "unit": "Degrees C",
+                "mean": 62.1
+            }, 
+            {
+                "label": "CPU Energy",
+                "unit": "mWh",
+                "total": 26.18575909
+            },
+            {
+                "label": "Total Energy",
+                "unit": "mWh", 
+                "total": 4321.23
+            } 
+            ]
         },
         {
-            "label": "Total Energy",
-            "unit": "mWh", 
-            "total": 4321.23
-        } 
-        ]
-    }
+            "size" : 70000000,
+            "total_time": 12345,
+            "measurements": 
+            [
+            {
+                "label": "CPU Temp",
+                "unit": "Degrees C",
+                "mean": 62.1
+            }, 
+            {
+                "label": "CPU Energy",
+                "unit": "mWh",
+                "total": 27.67375758
+            },
+            {
+                "label": "Total Energy",
+                "unit": "mWh", 
+                "total": 4321.23
+            } 
+            ]
+        },
+        {
+            "size" : 80000000,
+            "total_time": 12345,
+            "measurements": 
+            [
+            {
+                "label": "CPU Temp",
+                "unit": "Degrees C",
+                "mean": 62.1
+            }, 
+            {
+                "label": "CPU Energy",
+                "unit": "mWh",
+                "total": 32.27375758
+            },
+            {
+                "label": "Total Energy",
+                "unit": "mWh", 
+                "total": 4321.23
+            } 
+            ]
+        },
+        {
+            "size" : 90000000,
+            "total_time": 12345,
+            "measurements": 
+            [
+            {
+                "label": "CPU Temp",
+                "unit": "Degrees C",
+                "mean": 62.1
+            }, 
+            {
+                "label": "CPU Energy",
+                "unit": "mWh",
+                "total": 35.97375758
+            },
+            {
+                "label": "Total Energy",
+                "unit": "mWh", 
+                "total": 4321.23
+            } 
+            ]
+        },
+        {
+            "size" : 100000000,
+            "total_time": 12345,
+            "measurements": 
+            [
+            {
+                "label": "CPU Temp",
+                "unit": "Degrees C",
+                "mean": 62.1
+            }, 
+            {
+                "label": "CPU Energy",
+                "unit": "mWh",
+                "total": 40.27375758
+            },
+            {
+                "label": "Total Energy",
+                "unit": "mWh", 
+                "total": 4321.23
+            } 
+            ]
+        }
     ]
 }
