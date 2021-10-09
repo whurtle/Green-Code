@@ -1,52 +1,141 @@
+
 {
     "datetime" : 1628472149,
     "id" : "gros5085",
     "sort" : "selection", 
     "runs": 
     [
-    {
-        "size" : 5000,
-        "total_time": 12345,
-        "measurements": 
-        [
         {
-            "label": "CPU Temp",
-            "unit": "Degrees C",
-            "mean": 62.1
-        }, 
-        {
-            "label": "CPU Energy",
-            "unit": "mWh",
-            "total": 1234.23
+            "size" : 50000000,
+            "value_time": 12345,
+            "measurements": 
+            [
+            {
+                "label": "CPU Temp",
+                "unit": "Degrees C",
+                "value": 62.1
+            }, 
+            {
+                "label": "CPU Energy",
+                "unit": "mWh",
+                "value": 20.27375758
+            },
+            {
+                "label": "value Energy",
+                "unit": "mWh", 
+                "value": 4321.23
+            } 
+            ]
         },
         {
-            "label": "Total Energy",
-            "unit": "mWh", 
-            "total": 4321.23
-        } 
-        ]
-    },
-    {
-        "size" : 10000,
-        "total_time": 54321,
-        "measurements": 
-        [
-        {
-            "label": "CPU Temp",
-            "unit": "Degrees C",
-            "mean": 62.1
-        }, 
-        {
-            "label": "CPU Energy",
-            "unit": "mWh",
-            "total": 1234.23
+            "size" : 60000000,
+            "value_time": 12345,
+            "measurements": 
+            [
+            {
+                "label": "CPU Temp",
+                "unit": "Degrees C",
+                "value": 62.1
+            }, 
+            {
+                "label": "CPU Energy",
+                "unit": "mWh",
+                "value": 26.18575909
+            },
+            {
+                "label": "value Energy",
+                "unit": "mWh", 
+                "value": 4321.23
+            } 
+            ]
         },
         {
-            "label": "Total Energy",
-            "unit": "mWh", 
-            "total": 4321.23
-        } 
-        ]
-    }
+            "size" : 70000000,
+            "value_time": 12345,
+            "measurements": 
+            [
+            {
+                "label": "CPU Temp",
+                "unit": "Degrees C",
+                "value": 62.1
+            }, 
+            {
+                "label": "CPU Energy",
+                "unit": "mWh",
+                "value": 27.67375758
+            },
+            {
+                "label": "value Energy",
+                "unit": "mWh", 
+                "value": 4321.23
+            } 
+            ]
+        },
+        {
+            "size" : 80000000,
+            "value_time": 12345,
+            "measurements": 
+            [
+            {
+                "label": "CPU Temp",
+                "unit": "Degrees C",
+                "value": 62.1
+            }, 
+            {
+                "label": "CPU Energy",
+                "unit": "mWh",
+                "value": 32.27375758
+            },
+            {
+                "label": "value Energy",
+                "unit": "mWh", 
+                "value": 4321.23
+            } 
+            ]
+        },
+        {
+            "size" : 90000000,
+            "value_time": 12345,
+            "measurements": 
+            [
+            {
+                "label": "CPU Temp",
+                "unit": "Degrees C",
+                "value": 62.1
+            }, 
+            {
+                "label": "CPU Energy",
+                "unit": "mWh",
+                "value": 35.97375758
+            },
+            {
+                "label": "value Energy",
+                "unit": "mWh", 
+                "value": 4321.23
+            } 
+            ]
+        },
+        {
+            "size" : 100000000,
+            "value_time": 12345,
+            "measurements": 
+            [
+            {
+                "label": "CPU Temp",
+                "unit": "Degrees C",
+                "value": 62.1
+            }, 
+            {
+                "label": "CPU Energy",
+                "unit": "mWh",
+                "value": 40.27375758
+            },
+            {
+                "label": "value Energy",
+                "unit": "mWh", 
+                "value": 4321.23
+            } 
+            ]
+        }
     ]
 }

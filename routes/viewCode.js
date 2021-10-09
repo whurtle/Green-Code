@@ -30,7 +30,7 @@ router.get('/:submissionId', async function (req, res) {
             }
         });
     }); 
-    res.render('viewCode', { view: codes });
+    res.render('ViewCode', { view: codes });
 });
 
 module.exports = router;

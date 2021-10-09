@@ -126,7 +126,7 @@ router.post('/upload', function (req, res) {
             pool.query(query, [sampleFile.name, ext[1], sampleFile.data], (err, codes) => {
                 if(!err) {
                     // res.send("file Uploaded");
-                    res.render('codeListing', { data: codes });
+                    res.render('CodeListing', { data: codes });
                 } else {
                     console.log(err);
                 }
@@ -138,7 +138,177 @@ router.post('/upload', function (req, res) {
 
 });
 
-router.put('/uploadJson/:id', function (req, res) {
+// const populateDummyData = () => {
+//     // const emails = ['ahelman@.csumb.edu', 'jgross@csumb.edu', 'djacoby@csumb.edu', 'jcena@csumb.edu', 'dddd@csumb.edu'];
+//     // emails.forEach(email => pool.query('INSERT INTO User VALUES (NULL, ?)', [email]));
+//     // for (let i = 1; i < 6; i++) {
+//     //     pool.query('INSERT INTO Code VALUES (NULL, ?, ?, ?, ?)', [i, 'fake', 'py', 'print(\'Hello World\')']);
+//     // }
+//     for (let i = 1; i < 6; i++) {
+//         function randomIntFromInterval(min, max) { // min and max included 
+//             return Math.random() * (max - min + 1) + min;
+//           }
+//         const sorts = ['selection', 'insertion', 'bubble', 'fast-insertion']
+//         sorts.forEach(sort => {
+//             const json = {
+//                 "datetime" : 1628472149,
+//                 "id" : "gros5085",
+//                 "runs": 
+//                 [
+//                     {
+//                         "size" : 50000000,
+//                         "value_time": 12345,
+//                         "measurements": 
+//                         [
+//                         {
+//                             "label": "CPU Temp",
+//                             "unit": "Degrees C",
+//                             "value": randomIntFromInterval(59, 68)
+//                         }, 
+//                         {
+//                             "label": "CPU Energy",
+//                             "unit": "mWh",
+//                             "value": randomIntFromInterval(15, 20) + 10
+//                         },
+//                         {
+//                             "label": "value Energy",
+//                             "unit": "mWh", 
+//                             "value":  randomIntFromInterval(1000, 2000) + 3000
+//                         } 
+//                         ]
+//                     },
+//                     {
+//                         "size" : 60000000,
+//                         "value_time": 12345,
+//                         "measurements": 
+//                         [
+//                             {
+//                                 "label": "CPU Temp",
+//                                 "unit": "Degrees C",
+//                                 "value": randomIntFromInterval(59, 68)
+//                             }, 
+//                             {
+//                                 "label": "CPU Energy",
+//                                 "unit": "mWh",
+//                                 "value": randomIntFromInterval(15, 20) + 20
+//                             },
+//                             {
+//                                 "label": "value Energy",
+//                                 "unit": "mWh", 
+//                                 "value":  randomIntFromInterval(1000, 2000) + 5000
+//                             } 
+//                             ]
+//                     },
+//                     {
+//                         "size" : 70000000,
+//                         "value_time": 12345,
+//                         "measurements": 
+//                         [
+//                             {
+//                                 "label": "CPU Temp",
+//                                 "unit": "Degrees C",
+//                                 "value": randomIntFromInterval(59, 68)
+//                             }, 
+//                             {
+//                                 "label": "CPU Energy",
+//                                 "unit": "mWh",
+//                                 "value": randomIntFromInterval(15, 20) + 30
+//                             },
+//                             {
+//                                 "label": "value Energy",
+//                                 "unit": "mWh", 
+//                                 "value":  randomIntFromInterval(1000, 2000) + 4000
+//                             } 
+//                             ]
+//                     },
+//                     {
+//                         "size" : 80000000,
+//                         "value_time": 12345,
+//                         "measurements": 
+//                         [
+//                             {
+//                                 "label": "CPU Temp",
+//                                 "unit": "Degrees C",
+//                                 "value": randomIntFromInterval(59, 68)
+//                             }, 
+//                             {
+//                                 "label": "CPU Energy",
+//                                 "unit": "mWh",
+//                                 "value": randomIntFromInterval(15, 20) + 40
+//                             },
+//                             {
+//                                 "label": "value Energy",
+//                                 "unit": "mWh", 
+//                                 "value":  randomIntFromInterval(1000, 2000) + 5000
+//                             } 
+//                             ]
+//                     },
+//                     {
+//                         "size" : 90000000,
+//                         "value_time": 12345,
+//                         "measurements": 
+//                         [
+//                             {
+//                                 "label": "CPU Temp",
+//                                 "unit": "Degrees C",
+//                                 "value": randomIntFromInterval(59, 68)
+//                             }, 
+//                             {
+//                                 "label": "CPU Energy",
+//                                 "unit": "mWh",
+//                                 "value": randomIntFromInterval(15, 20) + 50
+//                             },
+//                             {
+//                                 "label": "value Energy",
+//                                 "unit": "mWh", 
+//                                 "value":  randomIntFromInterval(1000, 2000) + 6000
+//                             } 
+//                             ]
+//                     },
+//                     {
+//                         "size" : 100000000,
+//                         "value_time": 12345,
+//                         "measurements": 
+//                         [
+//                             {
+//                                 "label": "CPU Temp",
+//                                 "unit": "Degrees C",
+//                                 "value": randomIntFromInterval(59, 68)
+//                             }, 
+//                             {
+//                                 "label": "CPU Energy",
+//                                 "unit": "mWh",
+//                                 "value": randomIntFromInterval(15, 20) + 60
+//                             },
+//                             {
+//                                 "label": "value Energy",
+//                                 "unit": "mWh", 
+//                                 "value":  randomIntFromInterval(1000, 2000) + 7000
+//                             } 
+//                             ]
+//                     }
+//                 ]           
+//             }
+    
+//             pool.query('INSERT INTO SortRun VALUES (?, ?, ?, NULL)', [i, sort, JSON.stringify({...json, sort: sort})]);
+//         });
+        
+//     }
+// }
+
+router.put('/json/:id', async function (req, res) {
+    // populateDummyData();
+    // const json = await new Promise((resolve, reject) => { 
+    //     pool.query('Select jsonString from Code WHERE submissionId = ?', [req.params.id], (err, results) => {
+    //         if (!err) {
+    //             resolve(results);
+    //         } else {
+    //             console.error(err);
+    //             reject(err);
+    //         }
+    //     });
+    // });
+
     pool.query('UPDATE Code SET jsonString = ? WHERE submissionId = ? ', [JSON.stringify(req.body), req.params.id], (err, codes) => {
         if(!err) {
             console.log(codes);

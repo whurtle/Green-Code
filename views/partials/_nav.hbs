@@ -16,6 +16,9 @@
       <a href="/codeListing" class='navbar-item'>
         Code Listings
       </a>
+      <a href="/data" class='navbar-item'>
+        Leaderboard
+      </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
@@ -66,7 +69,9 @@
   }
 
   function onSignIn(googleUser) {
-      var profile = googleUser.getBasicProfile();
+      const profile = googleUser.getBasicProfile();
+      console.log(profile);
+      sessionStorage.setItem('profile', profile);
       //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
       //console.log('Name: ' + profile.getName());
       //console.log('Image URL: ' + profile.getImageUrl());
