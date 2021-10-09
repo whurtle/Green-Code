@@ -1,3 +1,4 @@
+
 {
     "datetime" : 1628472149,
     "id" : "gros5085",
@@ -6,133 +7,133 @@
     [
         {
             "size" : 50000000,
-            "total_time": 12345,
+            "value_time": 12345,
             "measurements": 
             [
             {
                 "label": "CPU Temp",
                 "unit": "Degrees C",
-                "mean": 62.1
+                "value": 62.1
             }, 
             {
                 "label": "CPU Energy",
                 "unit": "mWh",
-                "total": 20.27375758
+                "value": 20.27375758
             },
             {
-                "label": "Total Energy",
+                "label": "value Energy",
                 "unit": "mWh", 
-                "total": 4321.23
+                "value": 4321.23
             } 
             ]
         },
         {
             "size" : 60000000,
-            "total_time": 12345,
+            "value_time": 12345,
             "measurements": 
             [
             {
                 "label": "CPU Temp",
                 "unit": "Degrees C",
-                "mean": 62.1
+                "value": 62.1
             }, 
             {
                 "label": "CPU Energy",
                 "unit": "mWh",
-                "total": 26.18575909
+                "value": 26.18575909
             },
             {
-                "label": "Total Energy",
+                "label": "value Energy",
                 "unit": "mWh", 
-                "total": 4321.23
+                "value": 4321.23
             } 
             ]
         },
         {
             "size" : 70000000,
-            "total_time": 12345,
+            "value_time": 12345,
             "measurements": 
             [
             {
                 "label": "CPU Temp",
                 "unit": "Degrees C",
-                "mean": 62.1
+                "value": 62.1
             }, 
             {
                 "label": "CPU Energy",
                 "unit": "mWh",
-                "total": 27.67375758
+                "value": 27.67375758
             },
             {
-                "label": "Total Energy",
+                "label": "value Energy",
                 "unit": "mWh", 
-                "total": 4321.23
+                "value": 4321.23
             } 
             ]
         },
         {
             "size" : 80000000,
-            "total_time": 12345,
+            "value_time": 12345,
             "measurements": 
             [
             {
                 "label": "CPU Temp",
                 "unit": "Degrees C",
-                "mean": 62.1
+                "value": 62.1
             }, 
             {
                 "label": "CPU Energy",
                 "unit": "mWh",
-                "total": 32.27375758
+                "value": 32.27375758
             },
             {
-                "label": "Total Energy",
+                "label": "value Energy",
                 "unit": "mWh", 
-                "total": 4321.23
+                "value": 4321.23
             } 
             ]
         },
         {
             "size" : 90000000,
-            "total_time": 12345,
+            "value_time": 12345,
             "measurements": 
             [
             {
                 "label": "CPU Temp",
                 "unit": "Degrees C",
-                "mean": 62.1
+                "value": 62.1
             }, 
             {
                 "label": "CPU Energy",
                 "unit": "mWh",
-                "total": 35.97375758
+                "value": 35.97375758
             },
             {
-                "label": "Total Energy",
+                "label": "value Energy",
                 "unit": "mWh", 
-                "total": 4321.23
+                "value": 4321.23
             } 
             ]
         },
         {
             "size" : 100000000,
-            "total_time": 12345,
+            "value_time": 12345,
             "measurements": 
             [
             {
                 "label": "CPU Temp",
                 "unit": "Degrees C",
-                "mean": 62.1
+                "value": 62.1
             }, 
             {
                 "label": "CPU Energy",
                 "unit": "mWh",
-                "total": 40.27375758
+                "value": 40.27375758
             },
             {
-                "label": "Total Energy",
+                "label": "value Energy",
                 "unit": "mWh", 
-                "total": 4321.23
+                "value": 4321.23
             } 
             ]
         }

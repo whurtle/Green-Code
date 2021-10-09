@@ -1,3 +1,4 @@
+const { json } = require('express');
 var express = require('express');
 var mysql = require('mysql');
 var router = express.Router();
@@ -14,35 +15,29 @@ const sqlConfig = {
 // creates a pool to handle query requests.
 const pool = mysql.createPool(sqlConfig);
 
-/* GET results listing. */
-router.get('/', async function(req, res, next) {
-    var codes = await new Promise(function (resolve, reject) {
-        const query = 'SELECT * FROM Code';
-        pool.query(query, function (error, results) {
-            if (error) {
-                req.err = error;
-                reject(error);
-            } else {
-                resolve(results);
-            }
-        });
-    });
-    res.render('Results', { data: codes });
- });
-
- router.get('/:submissionId', async function(req, res, next) {
-    res.render('graphsJson', { data: req.params.submissionId });
- });
-
- router.get('/json/:submissionId', async function(req, res, next) {
+ router.get('/json', async function(req, res, next) {
     var results = await new Promise((resolve, reject) => {
-        pool.query('SELECT jsonString FROM Code where submissionId = ?', [req.params.submissionId], (error, results) => {
+        pool.query('SELECT * from SortRun', [], (error, results) => {
             if (error) {
                 req.err = error;
                 reject(error);
                 res.status(500).send();
             } else {
-                res.send(JSON.parse(results[0].jsonString));
+                res.send(results.map(row => JSON.parse(row.jsonString)));
+            }
+        });
+    });
+ });
+
+ router.get('/json/:submissionId', async function(req, res, next) {
+    var results = await new Promise((resolve, reject) => {
+        pool.query('SELECT jsonString FROM SortRun where submissionId = ?', [req.params.submissionId], (error, results) => {
+            if (error) {
+                req.err = error;
+                reject(error);
+                res.status(500).send();
+            } else {
+                res.send(results.map(row => JSON.parse(row.jsonString)));
                 resolve(results);
             }
         });

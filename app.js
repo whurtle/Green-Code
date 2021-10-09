@@ -1,26 +1,27 @@
 const mysql = require('mysql');
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var fileUpload = require('express-fileupload');
-var logger = require('morgan');
-var hbs = require("hbs");
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const fileUpload = require('express-fileupload');
+const logger = require('morgan');
+const hbs = require('hbs');
 
 require('dotenv').config();
 
-hbs.registerPartials(path.join(__dirname, "views/partials"));
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
 
-var indexRouter = require('./routes/index');
-var homeRouter = require('./routes/home');
-var codeListingRouter = require('./routes/codeListing');
-var loginRouter = require('./routes/login');
-var uploadRouter = require('./routes/upload');
-var profileRouter = require('./routes/profile');
-var resultsRouter = require('./routes/results');
-var codeRouter = require('./routes/API/code');
-var viewRouter = require('./routes/viewCode');
-var app = express();
+const indexRouter = require('./routes/index');
+const homeRouter = require('./routes/home');
+const codeListingRouter = require('./routes/codeListing');
+const loginRouter = require('./routes/login');
+const uploadRouter = require('./routes/upload');
+const profileRouter = require('./routes/profile');
+const resultsRouter = require('./routes/results');
+const codeRouter = require('./routes/API/code');
+const viewRouter = require('./routes/viewCode');
+const dataRouter = require('./routes/data');
+const app = express();
 
 // creates connection to database
 // mysqlConnection takes in a config. object which contains host, user, password and the database name
@@ -40,7 +41,7 @@ pool.connect((err) => {
   }
   console.log('Connected to Database');
 });
- db = global.pool;
+db = global.pool;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -62,21 +63,24 @@ app.use('/profile', profileRouter);
 app.use('/results', resultsRouter);
 app.use('/code', codeRouter);
 app.use('/viewCode', viewRouter);
+app.use('/data', dataRouter);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// // catch 404 and forward to error handler
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+// // error handler
+// app.use(function(err, req, res, next) {
+//   // set locals, only providing error in development
+//   res.locals.message = err.message;
+//   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+//   // render the error page
+//   res.status(err.status || 500);
+
+//   // Does not exist?
+//   // res.render('error');
+// });
 
 module.exports = app;

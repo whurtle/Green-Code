@@ -1,34 +1,17 @@
 {{> _header}}
-<br><br>
-
-<div class="styled-table">
-  <table id="resultsTable">
-    	<thead>
-			<tr>
-				<th>Submission ID</th>
-				<th>Code Name</th>
-        <th></th>
-        <th></th>
-			</tr>
-		</thead>
-    <tbody>
-      {{#each data}}
-      <tr>
-        <td>{{this.submissionId}}</td>
-        <td>{{this.codeName}}</td>
-        <td><a href="/viewCode/{{this.submissionId}}">View Code</a></td>      
-        <td><a>Download</a></td>
-      </tr>
-      {{/each}}
-    </tbody>
-  </table>
+<section class="hero is-info">
+  <div class="hero-body">
+    <span id="least-carbon" class="title">
+		Least carbon produced: 
+    </span>
   </div>
-
+</section>
+{{!-- <div id="graphs" class="has-background-black p-5"></div> --}}
 <script>
-$(document).ready(function(){
-    $('#resultsTable').dataTable();
-});
+	fetch('/results/json/summary')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("least-carbon").innerHTML += data.leastCarbon + ' grams by ' + data.winner;
+    });
 </script>
-
-<br><br>
 {{> _footer}}
