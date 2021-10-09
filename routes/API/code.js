@@ -126,7 +126,7 @@ router.post('/upload', function (req, res) {
             pool.query(query, [sampleFile.name, ext[1], sampleFile.data], (err, codes) => {
                 if(!err) {
                     // res.send("file Uploaded");
-                    res.render('codeListing', { data: codes });
+                    res.render('CodeListing', { data: codes });
                 } else {
                     console.log(err);
                 }

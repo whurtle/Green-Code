@@ -27,7 +27,7 @@ router.get('/', async function(req, res, next) {
             }
         });
     });
-    res.render('codeListing', { data: codes });
+    res.render('CodeListing', { data: codes });
  });
 
 module.exports = router;
